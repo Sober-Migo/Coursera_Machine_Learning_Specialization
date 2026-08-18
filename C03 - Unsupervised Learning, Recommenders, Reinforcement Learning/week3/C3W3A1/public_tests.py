@@ -1,0 +1,104 @@
+from tensorflow.keras.activations import relu, linear
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
+
+import numpy as np
+
+def test_network(target):
+    num_actions = 4
+    state_size = 8
+    i = 0
+    
+    # [FIX FOR KERAS 3] Force build the model so it populates input/output attributes internally
+    target.build(input_shape=(None, state_size))
+    
+    assert len(target.layers) == 3, f"Wrong number of layers. Expected 3 but got {len(target.layers)}"
+    
+    # [FIX FOR KERAS 3] Use Python's built-in list() instead of the deprecated .as_list()
+    actual_input_shape = list(target.input_shape) if hasattr(target, 'input_shape') else list(target.input.shape)
+    assert actual_input_shape == [None, state_size], \
+        f"Wrong input shape. Expected [None, 8] but got {actual_input_shape}" 
+        
+    expected = [[Dense, [None, 64], relu],
+                [Dense, [None, 64], relu],
+                [Dense, [None, num_actions], linear]]
+
+    for layer in target.layers:
+        assert type(layer) == expected[i][0], \
+            f"Wrong type in layer {i}. Expected {expected[i][0]} but got {type(layer)}"
+            
+        # [FIX FOR KERAS 3] Convert the tuple to a list safely
+        actual_output_shape = list(layer.output_shape) if hasattr(layer, 'output_shape') else list(layer.output.shape)
+        
+        assert actual_output_shape == expected[i][1], \
+            f"Wrong number of units in layer {i}. Expected {expected[i][1]} but got {actual_output_shape}"
+            
+        assert layer.activation == expected[i][2], \
+            f"Wrong activation in layer {i}. Expected {expected[i][2]} but got {layer.activation}"
+        i = i + 1
+
+    print("\033[92mAll tests passed!")
+    
+def test_optimizer(target, ALPHA):
+    assert type(target) == Adam, f"Wrong optimizer. Expected: {Adam}, got: {type(target)}"
+    
+    # [FIX FOR KERAS 3] Safely extract the learning rate value
+    lr = target.learning_rate
+    if hasattr(lr, 'numpy'):
+        lr = lr.numpy()
+    else:
+        lr = float(lr)
+        
+    assert np.isclose(lr, ALPHA), f"Wrong alpha. Expected: {ALPHA}, got: {lr}"
+    print("\033[92mAll tests passed!")
+    
+def test_compute_loss(target):
+    num_actions = 4
+    def target_q_network_random(inputs):
+        return np.float32(np.random.rand(inputs.shape[0],num_actions))
+    
+    def q_network_random(inputs):
+        return np.float32(np.random.rand(inputs.shape[0],num_actions))
+    
+    def target_q_network_ones(inputs):
+        return np.float32(np.ones((inputs.shape[0], num_actions)))
+    
+    def q_network_ones(inputs):
+        return np.float32(np.ones((inputs.shape[0], num_actions)))
+    
+    np.random.seed(1)
+    states = np.float32(np.random.rand(64, 8))
+    actions = np.float32(np.floor(np.random.uniform(0, 1, (64, )) * 4))
+    rewards = np.float32(np.random.rand(64, ))
+    next_states = np.float32(np.random.rand(64, 8))
+    done_vals = np.float32((np.random.uniform(0, 1, size=(64,)) > 0.96) * 1)
+
+    loss = target((states, actions, rewards, next_states, done_vals), 0.995, q_network_random, target_q_network_random)
+    
+    # [FIX FOR KERAS 3] Extract numerical value safely if the loss returns a Tensor
+    if hasattr(loss, 'numpy'):
+        loss = loss.numpy()
+
+    assert np.isclose(loss, 0.6991737), f"Wrong value. Expected {0.6991737}, got {loss}"
+
+    # Test when episode terminates
+    done_vals = np.float32(np.ones((64,)))
+    loss = target((states, actions, rewards, next_states, done_vals), 0.995, q_network_ones, target_q_network_ones)
+    if hasattr(loss, 'numpy'): loss = loss.numpy()
+    assert np.isclose(loss, 0.343270182), f"Wrong value. Expected {0.343270182}, got {loss}"
+      
+    # Test MSE with parameters A = B
+    done_vals = np.float32((np.random.uniform(0, 1, size=(64,)) > 0.96) * 1)
+    rewards = np.float32(np.ones((64, )))
+    loss = target((states, actions, rewards, next_states, done_vals), 0, q_network_ones, target_q_network_ones)
+    if hasattr(loss, 'numpy'): loss = loss.numpy()
+    assert np.isclose(loss, 0), f"Wrong value. Expected {0}, got {loss}"
+ 
+    # Test MSE with parameters A = 0 and B = 1
+    done_vals = np.float32((np.random.uniform(0, 1, size=(64,)) > 0.96) * 1)
+    rewards = np.float32(np.zeros((64, )))
+    loss = target((states, actions, rewards, next_states, done_vals), 0, q_network_ones, target_q_network_ones)
+    if hasattr(loss, 'numpy'): loss = loss.numpy()
+    assert np.isclose(loss, 1), f"Wrong value. Expected {1}, got {loss}"
+
+    print("\033[92mAll tests passed!")
