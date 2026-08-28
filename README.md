@@ -12,7 +12,7 @@
   <img src="./MachineLearningCertificate.png" alt="Machine Learning Specialization Certificate" width="700"/>
 </p>
 
-A complete collection of **optional labs**, **programming assignments**, **practice quizzes**, and **course materials** from the Machine Learning Specialization on Coursera.
+A complete collection of **lecture slides**, **optional labs**, **programming assignments**, **practice quizzes**, and **course materials** from the Machine Learning Specialization on Coursera.
 
 > This repository contains my personal solutions and notes while completing the specialization. It is intended for educational reference only.
 
@@ -138,25 +138,27 @@ The **Machine Learning Specialization** is a foundational online program created
 ```text
 Coursera_Machine_Learning_Specialization/
 ├── C01 - Supervised Machine Learning/
-│   ├── week1/          # Optional Labs + Practice Quizzes
-│   ├── week2/          # Optional Labs + Programming Assignment (Linear Regression)
-│   └── week3/          # Optional Labs + Programming Assignment (Logistic Regression)
+│   ├── week1/   C1_W1.pdf + Optional Labs + Practice quizzes
+│   ├── week2/   C1_W2.pdf + Optional Labs + C1W2A1 + Practice quizzes
+│   └── week3/   C1_W3.pdf + Optional Labs + C1W3A1 + Practice quizzes
 ├── C02 - Advanced Learning Algorithms/
-│   ├── week1/          # Neural Networks intuition & TensorFlow
-│   ├── week2/          # Activation functions, Softmax, Multiclass
-│   ├── week3/          # Model evaluation, bias/variance, ML development process
-│   └── week4/          # Decision Trees & Tree Ensembles
+│   ├── week1/   C2_W1.pdf + optional-labs + C2W1A1 + Practice quizzes
+│   ├── week2/   C2_W2.pdf + optional-labs + C2W2A1 + Practice quizzes
+│   ├── week3/   C2_W3.pdf + optional-labs + C2W3A1 + Practice quizzes
+│   └── week4/   C2_W4.pdf + optional labs + C2W4A1 + Practice quizzes
 ├── C03 - Unsupervised Learning, Recommenders, Reinforcement Learning/
-│   ├── week1/          # Clustering (K-means) & Anomaly Detection
-│   ├── week2/          # Collaborative Filtering & Content-based Filtering
-│   └── week3/          # Reinforcement Learning & Deep Q-Learning
-├── Quiz Bank/          # Aggregated quiz PDFs for all three courses
+│   ├── week1/   C3_W1.pdf + C3W1A + Practice quizzes
+│   ├── week2/   C3_W2.pdf + assignments + Practice quizzes
+│   └── week3/   C3_W3.pdf + optional-labs + assignment
+├── Quiz Bank/
 ├── MachineLearningCertificate.png
 ├── Machine Learning Specialization Certificate.pdf
 ├── requirements.txt
-├── setup_env.py        # Interactive setup script (venv + Conda, Python 3.12)
+├── setup_env.py
 └── README.md
 ```
+
+> **Lecture slides** are the `C*_W*.pdf` files inside every week folder.
 
 ---
 
@@ -166,9 +168,9 @@ Coursera_Machine_Learning_Specialization/
 
 | Week | Topics | Materials |
 |------|--------|-----------|
-| **Week 1** | Supervised vs Unsupervised Learning, Model Representation, Cost Function, Gradient Descent | [Optional Labs](./C01%20-%20Supervised%20Machine%20Learning/week1/Optional%20Labs) · Practice Quizzes |
-| **Week 2** | Multiple Linear Regression, Vectorization, Feature Scaling, Feature Engineering, Polynomial Regression, Scikit-learn | [Optional Labs](./C01%20-%20Supervised%20Machine%20Learning/week2/Optional%20Labs) · [Programming Assignment](./C01%20-%20Supervised%20Machine%20Learning/week2/C1W2A1) |
-| **Week 3** | Classification, Logistic Regression, Decision Boundary, Regularization, Overfitting | [Optional Labs](./C01%20-%20Supervised%20Machine%20Learning/week3/Optional%20Labs) · [Programming Assignment](./C01%20-%20Supervised%20Machine%20Learning/week3/C1W3A1) |
+| **Week 1** | Supervised vs Unsupervised Learning, Model Representation, Cost Function, Gradient Descent | [Lecture slides](./C01%20-%20Supervised%20Machine%20Learning/week1/C1_W1.pdf) · [Optional Labs](./C01%20-%20Supervised%20Machine%20Learning/week1/Optional%20Labs) · Practice Quizzes |
+| **Week 2** | Multiple Linear Regression, Vectorization, Feature Scaling, Feature Engineering, Polynomial Regression, Scikit-learn | [Lecture slides](./C01%20-%20Supervised%20Machine%20Learning/week2/C1_W2.pdf) · [Optional Labs](./C01%20-%20Supervised%20Machine%20Learning/week2/Optional%20Labs) · [Programming Assignment](./C01%20-%20Supervised%20Machine%20Learning/week2/C1W2A1) |
+| **Week 3** | Classification, Logistic Regression, Decision Boundary, Regularization, Overfitting | [Lecture slides](./C01%20-%20Supervised%20Machine%20Learning/week3/C1_W3.pdf) · [Optional Labs](./C01%20-%20Supervised%20Machine%20Learning/week3/Optional%20Labs) · [Programming Assignment](./C01%20-%20Supervised%20Machine%20Learning/week3/C1W3A1) |
 
 **Key Skills:** Linear Regression · Logistic Regression · Gradient Descent · Regularization · Feature Engineering
 
@@ -178,10 +180,10 @@ Coursera_Machine_Learning_Specialization/
 
 | Week | Topics | Materials |
 |------|--------|-----------|
-| **Week 1** | Neural Networks Intuition, Neurons & Layers, TensorFlow Implementation | [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week1/C2W1A1) |
-| **Week 2** | Activation Functions (ReLU), Softmax, Multiclass Classification, Backpropagation | [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week2/optional-labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week2/C2W2A1) |
-| **Week 3** | Model Evaluation & Selection, Bias vs Variance, ML Development Process | [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week3/optional-labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week3/C2W3A1) |
-| **Week 4** | Decision Trees, Tree Ensembles (Random Forests, XGBoost) | [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week4/optional%20labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week4/C2W4A1) |
+| **Week 1** | Neural Networks Intuition, Neurons & Layers, TensorFlow Implementation | [Lecture slides](./C02%20-%20Advanced%20Learning%20Algorithms/week1/C2_W1.pdf) · [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week1/C2W1A1) |
+| **Week 2** | Activation Functions (ReLU), Softmax, Multiclass Classification, Backpropagation | [Lecture slides](./C02%20-%20Advanced%20Learning%20Algorithms/week2/C2_W2.pdf) · [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week2/optional-labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week2/C2W2A1) |
+| **Week 3** | Model Evaluation & Selection, Bias vs Variance, ML Development Process | [Lecture slides](./C02%20-%20Advanced%20Learning%20Algorithms/week3/C2_W3.pdf) · [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week3/optional-labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week3/C2W3A1) |
+| **Week 4** | Decision Trees, Tree Ensembles (Random Forests, XGBoost) | [Lecture slides](./C02%20-%20Advanced%20Learning%20Algorithms/week4/C2_W4.pdf) · [Optional Labs](./C02%20-%20Advanced%20Learning%20Algorithms/week4/optional%20labs) · [Programming Assignment](./C02%20-%20Advanced%20Learning%20Algorithms/week4/C2W4A1) |
 
 **Key Skills:** Neural Networks · TensorFlow · Softmax · Decision Trees · Ensemble Methods · Model Diagnosis
 
@@ -191,9 +193,9 @@ Coursera_Machine_Learning_Specialization/
 
 | Week | Topics | Materials |
 |------|--------|-----------|
-| **Week 1** | K-means Clustering, Anomaly Detection | [Programming Assignments](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/C3W1A) |
-| **Week 2** | Collaborative Filtering, Content-based Filtering, Recommender Systems | [Programming Assignments](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/C3W2) |
-| **Week 3** | Reinforcement Learning, State-Action Value Function, Deep Q-Learning | [Optional Labs](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/optional-labs) · [Programming Assignment](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/C3W3A1) |
+| **Week 1** | K-means Clustering, Anomaly Detection | [Lecture slides](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/C3_W1.pdf) · [Programming Assignments](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/C3W1A) |
+| **Week 2** | Collaborative Filtering, Content-based Filtering, Recommender Systems | [Lecture slides](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/C3_W2.pdf) · [Programming Assignments](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2) |
+| **Week 3** | Reinforcement Learning, State-Action Value Function, Deep Q-Learning | [Lecture slides](./C03%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/C3_W3.pdf) · Optional Labs · Programming Assignment |
 
 **Key Skills:** Clustering · Anomaly Detection · Recommender Systems · Reinforcement Learning · Deep Q-Networks
 
